@@ -1,14 +1,19 @@
-﻿using Alphicsh.Alcorlib.Testing.Services;
+﻿using Alphicsh.Alcorlib.Testing.Scenarios;
+using Alphicsh.Alcorlib.Testing.Services;
 
 namespace Alphicsh.Alcorlib.Testing.Integration.Services.Scope;
 
-[TestMethodOrderer(typeof(ScopeTestMethodOrderer))]
+[TestMethodOrderer(typeof(ScenarioMethodOrderer))]
 [TestClass(DisableParallelization = true)]
 public class BaseServiceDependentScopeTests
-    : BaseServiceDependentTest<ScopeTestProviderFixture>, IClassFixture<ScopeTestProviderFixture>
+    : BaseServiceDependentTest<ScopeTestProviderFixture>, IClassFixture<ScopeTestProviderFixture>, IClassFixture<ScenarioFixture>, ITestScenario
 {
-    public BaseServiceDependentScopeTests(ScopeTestProviderFixture fixture) : base(fixture)
+    public IScenarioFixture ScenarioFixture { get; }
+
+    public BaseServiceDependentScopeTests(ScopeTestProviderFixture providerFixture, ScenarioFixture scenarioFixture)
+        : base(providerFixture)
     {
+        ScenarioFixture = scenarioFixture;
     }
 
     // This test suite checks the proper behaviour of singleton/scoped/transient services:
@@ -32,8 +37,8 @@ public class BaseServiceDependentScopeTests
     // - the transient service will keep accepting and returning the entered value for all checks,
     //   because a transient service provides a new instance even within the same scope
 
-    [Fact]
-    public void ShouldDeliverProperlyScopedService_1_Initial()
+    [ScenarioStep(01)]
+    public void Step01_ShouldDeliverInitialScopedServices()
     {
         // the initial singleton uses the INIT1 entered value
         CheckTestService<ScopeTestServices.ISingletonManager>(entered: "INIT1", received: "INIT1");
@@ -50,8 +55,8 @@ public class BaseServiceDependentScopeTests
         CheckTestService<ScopeTestServices.ITransientManager>(entered: "INIT2", received: "INIT2");
     }
 
-    [Fact]
-    public void ShouldDeliverProperlyScopedService_2_FollowUp()
+    [ScenarioStep(02)]
+    public void Step02_ShouldDeliverFollowUpScopedServices()
     {
         // the reused singleton from the first test receives the prior INIT1 value
         CheckTestService<ScopeTestServices.ISingletonManager>(entered: "FOLLOW1", received: "INIT1");
@@ -68,22 +73,22 @@ public class BaseServiceDependentScopeTests
         CheckTestService<ScopeTestServices.ITransientManager>(entered: "FOLLOW2", received: "FOLLOW2");
     }
 
-    [Fact]
-    public void ShouldDeliverProperlyScopedService_3_End()
+    [ScenarioStep(03)]
+    public void Step03_ShouldDeliverFinalScopedServices()
     {
         // the reused singleton from the first test receives the prior INIT1 value
-        CheckTestService<ScopeTestServices.ISingletonManager>(entered: "END1", received: "INIT1");
-        // the new test scope demands a new scoped service, which uses the END1 entered value
-        CheckTestService<ScopeTestServices.IScopedManager>(entered: "END1", received: "END1");
-        // the transient service is not reused and uses the END1 entered value
-        CheckTestService<ScopeTestServices.ITransientManager>(entered: "END1", received: "END1");
+        CheckTestService<ScopeTestServices.ISingletonManager>(entered: "FINAL1", received: "INIT1");
+        // the new test scope demands a new scoped service, which uses the FINAL1 entered value
+        CheckTestService<ScopeTestServices.IScopedManager>(entered: "FINAL1", received: "FINAL1");
+        // the transient service is not reused and uses the FINAL1 entered value
+        CheckTestService<ScopeTestServices.ITransientManager>(entered: "FINAL1", received: "FINAL1");
 
         // the reused singleton from the first test receives the prior INIT1 value
-        CheckTestService<ScopeTestServices.ISingletonManager>(entered: "END2", received: "INIT1");
-        // the reused scoped instance from the ongoing scope receives the prior END1 value
-        CheckTestService<ScopeTestServices.IScopedManager>(entered: "END2", received: "END1");
-        // the transient service is not reused and uses the END2 entered value
-        CheckTestService<ScopeTestServices.ITransientManager>(entered: "END2", received: "END2");
+        CheckTestService<ScopeTestServices.ISingletonManager>(entered: "FINAL2", received: "INIT1");
+        // the reused scoped instance from the ongoing scope receives the prior FINAL1 value
+        CheckTestService<ScopeTestServices.IScopedManager>(entered: "FINAL2", received: "FINAL1");
+        // the transient service is not reused and uses the FINAL2 entered value
+        CheckTestService<ScopeTestServices.ITransientManager>(entered: "FINAL2", received: "FINAL2");
     }
 
     // ------
