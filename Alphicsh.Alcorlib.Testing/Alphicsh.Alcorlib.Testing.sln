@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphicsh.Alcorlib.Testing.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphicsh.Alcorlib.Testing.Scenarios.Tests", "Alphicsh.Alcorlib.Testing.Scenarios.Tests\Alphicsh.Alcorlib.Testing.Scenarios.Tests.csproj", "{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphicsh.Alcorlib.Testing.Integration", "Alphicsh.Alcorlib.Testing.Integration\Alphicsh.Alcorlib.Testing.Integration.csproj", "{E5BD1194-72A9-9E1E-6169-5A084BD7194A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5BD1194-72A9-9E1E-6169-5A084BD7194A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5BD1194-72A9-9E1E-6169-5A084BD7194A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5BD1194-72A9-9E1E-6169-5A084BD7194A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5BD1194-72A9-9E1E-6169-5A084BD7194A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
