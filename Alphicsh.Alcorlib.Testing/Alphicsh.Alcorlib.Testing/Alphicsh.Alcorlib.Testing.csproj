@@ -2,8 +2,30 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>Alice Jankowska</Authors>
+    <Title>Alcorlib Testing</Title>
+    <Description>A collection of general purpose automated testing utilities.</Description>
+    <Company>Alphish Works</Company>
+    <Copyright>Copyright (c) Alphish Works 2026</Copyright>
+    <PackageTags>utilities, tests</PackageTags>
+    <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RepositoryUrl>https://github.com/Alphish/dotnet-alcorlib</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="xunit.v3.assert" Version="4.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Linq" />
+    <Using Include="System.Threading.Tasks" />
+  </ItemGroup>
 </Project>
