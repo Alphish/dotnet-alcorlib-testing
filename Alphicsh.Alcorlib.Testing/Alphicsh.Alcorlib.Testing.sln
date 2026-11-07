@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphicsh.Alcorlib.Testing",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphicsh.Alcorlib.Testing.Tests", "Alphicsh.Alcorlib.Testing.Tests\Alphicsh.Alcorlib.Testing.Tests.csproj", "{07D636C9-A771-A7F2-4E37-8AE6DBADFE87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphicsh.Alcorlib.Testing.Scenarios", "Alphicsh.Alcorlib.Testing.Scenarios\Alphicsh.Alcorlib.Testing.Scenarios.csproj", "{2BB19D34-5BC8-9649-A3F4-0BDBA488A2A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphicsh.Alcorlib.Testing.Scenarios.Tests", "Alphicsh.Alcorlib.Testing.Scenarios.Tests\Alphicsh.Alcorlib.Testing.Scenarios.Tests.csproj", "{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{07D636C9-A771-A7F2-4E37-8AE6DBADFE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07D636C9-A771-A7F2-4E37-8AE6DBADFE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07D636C9-A771-A7F2-4E37-8AE6DBADFE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB19D34-5BC8-9649-A3F4-0BDBA488A2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB19D34-5BC8-9649-A3F4-0BDBA488A2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB19D34-5BC8-9649-A3F4-0BDBA488A2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB19D34-5BC8-9649-A3F4-0BDBA488A2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E2229C-FE6D-02F5-509C-A11AB15C0C29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
